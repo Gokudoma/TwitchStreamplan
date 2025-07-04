@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap');
+
+body {
+  background-color: #fcefee;
+  font-family: 'Nunito', sans-serif;
+  color: #5c4b51;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  background-image: url('https://www.transparenttextures.com/patterns/paws.png');
+}

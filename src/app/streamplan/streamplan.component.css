@@ -1,0 +1,194 @@
+/* Bestehende Stile bleiben erhalten... */
+.streamplan-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.streamplan-header {
+  text-align: center;
+  margin-bottom: 20px; /* Reduzierter Abstand */
+}
+
+.streamplan-header h1 {
+  font-size: 3.5rem;
+  color: #ff8f8f;
+  font-weight: 800;
+  margin: 0;
+  text-shadow: 2px 2px #fff;
+}
+
+.streamplan-header h2 {
+  font-size: 1.5rem;
+  color: #e5a9a9;
+  margin: 0;
+  min-height: 34px; /* Verhindert Springen beim Wechsel */
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.day-card {
+  background-color: #ffffff;
+  border: 2px dashed #e5a9a9;
+  border-radius: 20px;
+  padding: 25px 20px;
+  min-height: 220px; /* Etwas höher für die Eingabefelder */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.day-card.is-off-day {
+  justify-content: center;
+  align-items: center;
+}
+
+.day-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ff8f8f;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.start-time {
+  font-size: 1.2rem;
+  margin: 0 0 10px 0;
+}
+
+.start-time span {
+  font-weight: 700;
+}
+
+.activity {
+  font-size: 1rem;
+  background-color: #fdf0f0;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 0;
+}
+
+.off-day-label {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #e5a9a9;
+  text-align: center;
+}
+
+.card-emote {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: -20px;
+  right: -15px;
+  transform: rotate(15deg);
+}
+
+.day-card:nth-child(3) .card-emote {
+  top: -20px;
+  left: -15px;
+  right: auto;
+  transform: rotate(-15deg);
+}
+
+/* ============== NEUE STILE FÜR BEARBEITEN-MODUS ============== */
+
+.actions-toolbar {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.edit-button, .save-button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.edit-button {
+  background-color: #ff8f8f;
+  color: white;
+}
+
+.edit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.save-button {
+  background-color: #82e0aa; /* Ein freundliches Grün */
+  color: white;
+}
+
+.save-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.week-range-input {
+  font-size: 1.5rem;
+  color: #e5a9a9;
+  border: 2px dashed #e5a9a9;
+  background-color: #fff5f5;
+  border-radius: 10px;
+  padding: 5px 10px;
+  text-align: center;
+  width: 80%;
+  max-width: 400px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.edit-controls {
+  width: 100%;
+}
+
+.edit-controls label {
+  display: block;
+  font-weight: 700;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: #ff8f8f;
+  font-size: 0.9rem;
+}
+
+.edit-controls input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #e5a9a9;
+  background-color: #fdf0f0;
+  font-family: 'Nunito', sans-serif;
+  box-sizing: border-box;
+}
+
+.edit-off-day-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: #fdf0f0;
+  border-radius: 10px;
+}
+
+.edit-off-day-toggle label {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.edit-off-day-toggle input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}

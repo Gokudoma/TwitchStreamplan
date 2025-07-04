@@ -1,0 +1,54 @@
+{
+  "weekRange": "04.07. - 10.07.2025",
+  "days": [
+    {
+      "name": "Montag",
+      "startTime": "09:00 Uhr",
+      "activity": "Co-Working & Kreativ-Day",
+      "isOffDay": false,
+      "emote": "assets/emotes/SchiddiiHi.png"
+    },
+    {
+      "name": "Dienstag",
+      "startTime": "10:00 Uhr",
+      "activity": "Neues Spiel ausprobieren!",
+      "isOffDay": false,
+      "emote": "assets/emotes/SchiddiiGuitar.png"
+    },
+    {
+      "name": "Mittwoch",
+      "startTime": "",
+      "activity": "",
+      "isOffDay": true,
+      "emote": "assets/emotes/SchiddiiLurk.png"
+    },
+    {
+      "name": "Donnerstag",
+      "startTime": "",
+      "activity": "",
+      "isOffDay": true,
+      "emote": "assets/emotes/SchiddiiRip.png"
+    },
+    {
+      "name": "Freitag",
+      "startTime": "08:00 Uhr",
+      "activity": "Community-Freitag",
+      "isOffDay": false,
+      "emote": "assets/emotes/SchiddiiParty.png"
+    },
+    {
+      "name": "Samstag",
+      "startTime": "18:00 Uhr",
+      "activity": "Horror-Games am Abend",
+      "isOffDay": false,
+      "emote": "assets/emotes/SchiddiiGG.png"
+    },
+    {
+      "name": "Sonntag",
+      "startTime": "16:00 Uhr",
+      "activity": "Entspannter Sonntags-Stream",
+      "isOffDay": false,
+      "emote": "assets/emotes/SchiddiiEat.png"
+    }
+  ]
+}
