@@ -1,67 +1,82 @@
-/* Bestehende Stile bleiben erhalten... */
 .streamplan-container {
   width: 100%;
   max-width: 1200px;
   padding: 20px;
-  margin: 0 auto; /* NEU: Zentriert den gesamten Container horizontal */
+  margin: 0 auto;
+  /* Hinzufügen von Sternen als Deko-Element */
+  position: relative;
 }
 
-.streamplan-header {
-  text-align: center;
-  margin-bottom: 20px; /* Reduzierter Abstand */
-}
-
+/* Schillernde Überschrift */
 .streamplan-header h1 {
-  font-size: 3.5rem;
-  color: #ff8f8f;
-  font-weight: 800;
+  font-size: 5rem; /* Größer für mehr Wumms */
+  font-weight: 700;
   margin: 0;
-  text-shadow: 2px 2px #fff;
+  animation: color-rotate 5s linear infinite;
+  background-image: linear-gradient(45deg, #ff8f8f, #ffc107, #82e0aa, #89cff0, #b19cd9);
+  background-size: 200% auto;
+  color: #000;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.3);
 }
+
+@keyframes color-rotate {
+  from { background-position: 0% center; }
+  to { background-position: 200% center; }
+}
+
 
 .streamplan-header h2 {
-  font-size: 1.5rem;
-  color: #e5a9a9;
+  font-size: 1.8rem;
+  color: #fff;
   margin: 0;
-  min-height: 34px; /* Verhindert Springen beim Wechsel */
+  min-height: 34px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* NEU: Stärkerer Schatten */
 }
 
 .schedule-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
+  gap: 35px; /* Mehr Abstand */
 }
 
+/* Leuchtende Neon-Karten */
 .day-card {
-  background-color: #ffffff;
-  border: 2px dashed #e5a9a9;
-  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.1); /* Milchglas-Effekt */
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 25px;
   padding: 25px 20px;
-  min-height: 220px; /* Etwas höher für die Eingabefelder */
+  min-height: 220px;
   display: flex;
   flex-direction: column;
   position: relative;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  transition: all 0.2s ease-in-out;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2), 0 0 30px rgba(231, 60, 126, 0.3);
+  transition: all 0.3s ease-in-out;
 }
 
-.day-card.is-off-day {
-  justify-content: center;
-  align-items: center;
+.day-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4), 0 0 40px rgba(231, 60, 126, 0.5);
 }
 
 .day-name {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
-  color: #ff8f8f;
+  color: #fff;
   margin-top: 0;
   margin-bottom: 20px;
   text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* NEU: Stärkerer Schatten */
 }
 
 .start-time {
   font-size: 1.2rem;
   margin: 0 0 10px 0;
+  font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* NEU: Text-Schatten für Lesbarkeit */
 }
 
 .start-time span {
@@ -69,108 +84,103 @@
 }
 
 .activity {
-  font-size: 1rem;
-  background-color: #fdf0f0;
-  padding: 10px;
-  border-radius: 10px;
+  font-size: 1.1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  border-radius: 15px;
   margin: 0;
+  font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* NEU: Text-Schatten für Lesbarkeit */
 }
 
 .off-day-label {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #e5a9a9;
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
   text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* NEU: Stärkerer Schatten */
 }
 
 .card-emote {
   position: absolute;
-  width: 60px;
-  height: 60px;
-  top: -20px;
-  right: -15px;
+  width: 70px;
+  height: 70px;
+  top: -25px;
+  right: -20px;
   transform: rotate(15deg);
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+  transition: transform 0.3s ease;
 }
 
-.day-card:nth-child(3) .card-emote {
-  top: -20px;
-  left: -15px;
-  right: auto;
-  transform: rotate(-15deg);
+.day-card:hover .card-emote {
+    transform: rotate(5deg) scale(1.1);
 }
 
-/* ============== NEUE STILE FÜR BEARBEITEN-MODUS ============== */
-
+/* Knöpfe im neuen Design */
 .actions-toolbar {
   text-align: center;
   margin-bottom: 40px;
 }
 
 .edit-button, .save-button {
-  padding: 12px 25px;
+  padding: 15px 30px;
   border: none;
-  border-radius: 10px;
-  font-size: 1.1rem;
+  border-radius: 50px; /* Rund */
+  font-size: 1.2rem;
   font-weight: 700;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Fredoka', sans-serif;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  background-size: 200% auto;
 }
 
 .edit-button {
-  background-color: #ff8f8f;
-  color: white;
-}
-
-.edit-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 51%, #fd868c 100%);
 }
 
 .save-button {
-  background-color: #82e0aa; /* Ein freundliches Grün */
-  color: white;
+  background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
 }
 
-.save-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+.edit-button:hover, .save-button:hover {
+  background-position: right center; /* Farbwechsel beim Hovern */
+  transform: scale(1.05);
 }
 
+/* Eingabefelder im neuen Design */
 .week-range-input {
-  font-size: 1.5rem;
-  color: #e5a9a9;
-  border: 2px dashed #e5a9a9;
-  background-color: #fff5f5;
-  border-radius: 10px;
-  padding: 5px 10px;
+  font-size: 1.8rem;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.5);
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 15px;
+  padding: 8px 15px;
   text-align: center;
   width: 80%;
-  max-width: 400px;
-  font-family: 'Nunito', sans-serif;
-}
-
-.edit-controls {
-  width: 100%;
+  max-width: 450px;
+  font-family: 'Fredoka', sans-serif;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .edit-controls label {
-  display: block;
   font-weight: 700;
   margin-top: 15px;
   margin-bottom: 5px;
-  color: #ff8f8f;
-  font-size: 0.9rem;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .edit-controls input[type="text"] {
   width: 100%;
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid #e5a9a9;
-  background-color: #fdf0f0;
-  font-family: 'Nunito', sans-serif;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background-color: rgba(0,0,0,0.2);
+  font-family: 'Fredoka', sans-serif;
   box-sizing: border-box;
+  color: #fff;
 }
 
 .edit-off-day-toggle {
@@ -179,17 +189,64 @@
   justify-content: center;
   gap: 10px;
   padding: 10px;
-  background-color: #fdf0f0;
-  border-radius: 10px;
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 15px;
 }
 
-.edit-off-day-toggle label {
-  margin: 0;
-  font-size: 1.1rem;
-}
+/* ======================================================= */
+/* NEU: Stile für mobile Ansicht (für Instagram Story etc.) */
+/* ======================================================= */
 
-.edit-off-day-toggle input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
+@media (max-width: 768px) {
+  .streamplan-header h1 {
+    font-size: 3rem; /* Kleinere Überschrift */
+  }
+
+  .streamplan-header h2 {
+    font-size: 1.2rem;
+  }
+  
+  .schedule-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 Spalten für ein kompaktes Layout */
+    gap: 15px; /* Weniger Abstand */
+  }
+
+  .day-card {
+    min-height: auto; /* Höhe automatisch anpassen */
+    padding: 15px 10px;
+  }
+
+  .day-name {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .start-time {
+    font-size: 0.9rem;
+  }
+
+  .activity {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+
+  .off-day-label {
+    font-size: 1.8rem;
+  }
+
+  .card-emote {
+    width: 45px;
+    height: 45px;
+    top: -15px;
+    right: -10px;
+  }
+
+  .actions-toolbar {
+    margin-bottom: 25px;
+  }
+
+  .edit-button, .save-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
 }
