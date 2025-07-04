@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+declare var html2canvas: any;
+
 export interface StreamDay {
   name: string;
   startTime: string;
@@ -48,5 +50,30 @@ export class StreamplanComponent implements OnInit {
   saveScheduleToLocalStorage(): void {
     localStorage.setItem('streamSchedule', JSON.stringify(this.schedule));
     this.editMode = false;
+  }
+
+  downloadAsImage(): void {
+    const elementToCapture = document.getElementById('streamplan-container');
+    const buttons = document.querySelector('.actions-toolbar') as HTMLElement;
+
+    if (elementToCapture && buttons) {
+      buttons.style.display = 'none';
+
+      html2canvas(document.body, { 
+        useCORS: true,
+        height: window.innerHeight,
+        width: window.innerWidth,
+        windowHeight: window.innerHeight,
+        windowWidth: window.innerWidth
+      }).then((canvas: any) => {
+        const image = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.href = image;
+        link.download = 'streamplan.png';
+        link.click();
+        
+        buttons.style.display = 'block';
+      });
+    }
   }
 }
