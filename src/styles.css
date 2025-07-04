@@ -1,15 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;700&family=Pacifico&display=swap');
 
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
 body {
   font-family: 'Baloo 2', sans-serif;
   background-image: url('assets/streamplan-bg.jpg');
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
-  margin: 0;
-  padding: 20px;
-  min-height: 100vh;
+  padding: 10px;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom));
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
