@@ -1,4 +1,4 @@
-<div class="container" id="streamplan-container">
+<div class="container">
   <header class="streamplan-header">
     <h2 class="name-header">Schiddii</h2>
     <h1>STREAMPLAN</h1>
@@ -10,9 +10,6 @@
     </button>
     <button *ngIf="editMode" (click)="saveScheduleToLocalStorage()" class="save-button">
       Änderungen speichern
-    </button>
-    <button *ngIf="!editMode" (click)="downloadAsImage()" class="download-button">
-      Download
     </button>
   </div>
 
