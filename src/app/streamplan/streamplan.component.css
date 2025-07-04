@@ -3,6 +3,7 @@
   width: 100%;
   max-width: 1200px;
   padding: 20px;
+  margin: 0 auto; /* NEU: Zentriert den gesamten Container horizontal */
 }
 
 .streamplan-header {
