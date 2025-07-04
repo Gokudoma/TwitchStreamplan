@@ -1,15 +1,8 @@
-<div class="streamplan-container" *ngIf="schedule.days.length > 0">
-
-  <!-- Header -->
+<div class="container">
   <header class="streamplan-header">
     <h1>STREAMPLAN</h1>
-    <!-- Im normalen Modus: Text anzeigen -->
-    <h2 *ngIf="!editMode">{{ schedule.weekRange }}</h2>
-    <!-- Im Bearbeiten-Modus: Eingabefeld anzeigen -->
-    <input class="week-range-input" *ngIf="editMode" [(ngModel)]="schedule.weekRange" placeholder="z.B. 04.07. - 10.07.">
   </header>
 
-  <!-- Toolbar für die Buttons -->
   <div class="actions-toolbar">
     <button *ngIf="!editMode" (click)="editMode = true" class="edit-button">
       Plan bearbeiten
@@ -19,44 +12,36 @@
     </button>
   </div>
 
-  <!-- Das Grid mit den Tageskarten -->
-  <main class="schedule-grid">
-    <div *ngFor="let day of schedule.days" class="day-card" [class.is-off-day]="day.isOffDay">
-
-      <h3 class="day-name">{{ day.name }}</h3>
-
-      <!-- ============== ANZEIGE-MODUS ============== -->
-      <ng-container *ngIf="!editMode">
-        <div *ngIf="!day.isOffDay" class="day-content">
-          <p class="start-time"><span>Start:</span> {{ day.startTime }}</p>
-          <p class="activity">{{ day.activity }}</p>
-        </div>
-        <div *ngIf="day.isOffDay" class="off-day-label">
-          <p>OFF DAY</p>
-        </div>
-      </ng-container>
-
-      <!-- ============== BEARBEITEN-MODUS ============== -->
-      <ng-container *ngIf="editMode">
-        <div class="edit-controls">
-          <!-- Umschalter für "Streamfrei" -->
-          <div class="edit-off-day-toggle">
-            <label>Streamfrei?</label>
-            <input type="checkbox" [(ngModel)]="day.isOffDay">
+  <main class="schedule-box">
+    <div *ngFor="let day of schedule.days" class="day-row">
+      <div class="day-name-cell">
+        {{ day.name }}
+      </div>
+      
+      <div class="day-content-cell">
+        <ng-container *ngIf="!editMode">
+          <div *ngIf="!day.isOffDay" class="content-wrapper">
+            <div class="time-bubble">{{ day.startTime }}</div>
+            <div class="activity-text">{{ day.activity }}</div>
           </div>
-          <!-- Eingabefelder (nur wenn nicht "Streamfrei") -->
-          <div *ngIf="!day.isOffDay">
-            <label>Startzeit</label>
-            <input type="text" [(ngModel)]="day.startTime" placeholder="z.B. 18:00 Uhr">
-            <label>Aktivität</label>
-            <input type="text" [(ngModel)]="day.activity" placeholder="Was wird gestreamt?">
+          <div *ngIf="day.isOffDay" class="off-day-label">
+            STREAMFREI
           </div>
-        </div>
-      </ng-container>
+        </ng-container>
 
-      <!-- Emote wird immer angezeigt, wenn vorhanden -->
-      <img *ngIf="day.emote" [src]="day.emote" class="card-emote" alt="Deko Emote">
+        <ng-container *ngIf="editMode">
+          <div class="edit-controls">
+            <div class="edit-off-day-toggle">
+              <label>Streamfrei?</label>
+              <input type="checkbox" [(ngModel)]="day.isOffDay">
+            </div>
+            <div *ngIf="!day.isOffDay" class="edit-fields">
+              <input type="text" [(ngModel)]="day.startTime" placeholder="Uhrzeit">
+              <input type="text" [(ngModel)]="day.activity" placeholder="Aktivität">
+            </div>
+          </div>
+        </ng-container>
+      </div>
     </div>
   </main>
-
 </div>
